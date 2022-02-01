@@ -1,0 +1,223 @@
+$dark: #0c0d0e;
+$primary: #0d6efd;
+$dropdown-dark-link-hover-bg: $primary;
+
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+
+
+//Lista di Keyframes:
+
+@keyframes paint-border {
+    100%   { border-color: #0d6efd; }
+}
+@keyframes paint-background {
+    100%   { background-color: #0d6efd; }
+}
+@keyframes paint-text {
+    100%   { color: #0d6efd; }
+}
+@keyframes comparsa {
+    50%   { opacity: 0.5;}
+    75%   { opacity: 1; }
+    100%  { opacity: 1;}
+}
+@keyframes comparsa-paint {
+    50%   { opacity: 0.5; }
+    75%   { opacity: 1; 
+            color: white;}
+    100%  { opacity: 1;
+            color: $primary;}
+}
+@keyframes comparsa-navbar {
+    90%   { opacity: 0; }
+    100%  { opacity: 1;}
+}
+@keyframes glitch{
+    16% { font-family: 'Bebas Neue', cursive;}
+    32% { font-family: 'New Rocker', cursive;}
+    48% { font-family: 'Playball', cursive;}
+    64% { font-family: 'Staatliches', cursive;}
+    80% { font-family: 'Staatliches', cursive;}
+    96% { font-family: 'Teko', sans-serif;}
+}
+@keyframes blur {
+    75%  {backdrop-filter: blur(1px);}
+    100% {backdrop-filter: blur(4px);}
+}
+
+
+.paint-text{
+    // Avvia animazione per colorare con il $primary
+    &:hover{
+        animation: paint-text 0.5s forwards;
+        animation-fill-mode:forwards;
+    }
+    /* Un'alternativ alla funzione di JS "mouseover" ho scelto di utilizzare questo metodo
+        l'unico inconveniente è il non poter basarci un'animazione. Resta comunque un buon 
+        compromesso.
+    */ 
+    &:not(:hover){
+        color: white;
+    }
+
+}
+
+body{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: content-box;
+}
+.home-button{
+    &-empty{
+        font-size: 2.25rem;
+    }
+}
+
+.home-vid{
+    //top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+.overlay-text{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+    color: white;
+
+    animation: blur 10s forwards ease-out;
+
+}
+.showcase{
+    height: 100vh;
+    position: relative;
+    z-index: -2 ;
+    top: 0;
+}
+
+#be, #the{
+    opacity: 0;
+    animation: comparsa 5s 2s forwards;
+
+}
+#anomaly{
+    opacity: 0;
+    animation: comparsa-paint 5s 2s forwards, glitch 5s 7s infinite;
+}
+
+.navbar-home{
+    // Uso !important perchè voglio che sia un cambiamento temporaneo solo per la pagina
+    opacity: 0;
+    animation: comparsa-navbar 9s forwards;
+    &-static{
+        opacity: 1;
+    }
+}
+.blur{
+    backdrop-filter: blur(5px);
+}
+.cod-color {
+    border-color: #f26201;
+    background-color: #343434c9;
+    color: white;
+    
+    & > p > mark{
+        background-color: #fd6d00;
+        padding: 0 0.4em;
+        border-radius: 10px;
+    }
+}
+.bg-videogiochi{
+    background-image: url("/asset/media/img/winter_camo.jpg");
+}
+.bg-programmazione{
+    background-image: url("/asset/media/img/programmazione-sfondo.png");
+}
+.bg-crossfit{
+    background-image: url("/asset/media/img/bg-crossfitcdc.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.footer{
+    background-color: black;
+    color: $primary;
+    text-align: center;
+}
+.parallax{
+    background-attachment: fixed;
+}
+.contatti > a{
+    font-size: 2.50rem;
+    color: white;
+    padding: 0 0.4rem;
+}
+a > i{
+    &.bi-instagram:hover{
+        color: transparent;
+        background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        background-clip: text;
+    }
+    &.bi-facebook:hover{
+        color: transparent;
+        background: #1577f2;
+        background-clip: text;
+    }
+    &.bi-linkedin:hover{
+        color: transparent;
+        background: #0077b5;
+        background-clip: text;
+    }
+     &.bi-envelope-open:hover{
+        color: transparent;
+        background: #f2d62e;
+        background-clip: text;
+    }
+}
+.work-in-progress{
+    height: 100vh;
+}
+.img-profilo{
+    border-radius: 50%;
+}
+.logo-crossfitcdc{
+    backdrop-filter: blur(3px);
+}
+.cf-color{
+    border-color: #ea1d26;
+    background-color: #343434c9;
+    color: white;
+    
+    & > p > mark{
+        background-color: #ea1d26;
+        padding: 0 0.4em;
+        border-radius: 10px;
+        color: white;
+    }
+}
+.box-testo{
+    border-width: 6px;
+    border-style: solid;
+    border-radius: 8px;
+    text-align: center;
+}
+.coding-color{
+    border-color: #bbcfdd;
+    background-color: #343434c9;
+    color: white;
+    
+    & > p > mark{
+        background-color: #bbcfdd;
+        padding: 0 0.4em;
+        border-radius: 10px;
+        
+    }
+}
+.be-the-anomaly-prop{
+    font-size: 6em;
+}
+mark{
+    display: inline-block;
+}
