@@ -11554,6 +11554,12 @@ body {
   padding: 0 0.4rem;
 }
 
+a > i.bi-github:hover {
+  color: transparent;
+  background: #0066fd;
+  -webkit-background-clip: text;
+          background-clip: text;
+}
 a > i.bi-instagram:hover {
   color: transparent;
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
